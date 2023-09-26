@@ -1,0 +1,2154 @@
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --sizeindex: calc(1vw + 1vh);
+  --color-gray: #B0B0B0;
+  --color-viol: #9873FF;
+  --color-white: #FFFFFF;
+  --color-back: #E5E5E5;
+
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans');
+  src: url('../fonts/OpenSans-Regular.woff2') format('woff2'),
+    url('../fonts/OpenSans-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans');
+  src: url('../fonts/OpenSans-Bold.woff2') format('woff2'),
+    url('../fonts/OpenSans-Bold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans');
+  src: url('../fonts/OpenSans-SemiBold.woff2') format('woff2'),
+    url('../fonts/OpenSans-SemiBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 1500px;
+  max-width: 1920px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--color-back);
+  margin: 0 auto;
+}
+
+
+.header {
+  background-color: var(--color-white);
+  box-shadow: 0px 9.03012px 27.0904px rgba(176, 190, 197, 0.32), 0px 3.38629px 5.64383px rgba(176, 190, 197, 0.32);
+  margin-bottom: 4%;
+}
+
+.header-wrapper {
+  padding: 1.5% 1.4%;
+  display: flex;
+}
+
+.header__logo {
+  margin-right: 4%;
+  transform: scale(1.2);
+}
+
+.header__search__field {
+  width: 42.5vw;
+  padding: 2% 2%;
+  font-size: calc(var(--sizeindex) * .7);
+  border: 1px solid var(--color-back);
+}
+
+.contactList {
+  padding: 0;
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0px 5px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.container {
+  margin: 38px auto;
+  max-width: 1450px;
+  background-color: var(--color-back);
+}
+
+.main-title {
+  margin-bottom: 1.7%;
+  font-size: calc(var(--sizeindex) * 1.15);
+}
+
+tbody {
+  background-color: var(--color-white);
+  font-size: calc(var(--sizeindex) * .65);
+
+}
+
+tr td {
+  height: 7.7vh;
+}
+
+.span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #B0B0B0;
+  font-size: calc(var(--sizeindex) * .65);
+  padding-left: 4%;
+}
+
+thead {
+  height: 4vh;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.butArrow {
+  border: none;
+  background-color: transparent;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.id {
+  width: 5%;
+  vertical-align: middle;
+  padding: 0 1.5%;
+}
+
+.id:hover,
+.tdFIO:hover,
+.tdDateCreate:hover,
+.tdDateChange:hover {
+  color: black;
+  transition: 0.4s color ease-in-out;
+  cursor: pointer;
+}
+
+.tdContacts:hover,
+.tdActions:hover {
+  color: black;
+  transition: 0.4s color ease-in-out;
+}
+
+.tdId {
+  text-align: center;
+}
+
+.tdFIO {
+  width: 28%;
+  vertical-align: middle;
+  padding: 0 2.2%;
+}
+
+.name {
+  padding: 0 2.2%;
+}
+
+.tdDateCreate {
+  width: 12.5%;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.tdDateChange {
+  width: 12.5%;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.tdContacts {
+  width: 11%;
+}
+
+.tdActions {
+  width: 15%;
+}
+
+.divActions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tdActionsChange {
+  width: 55%;
+}
+
+
+.tdActionsDelete {
+  width: 45%;
+}
+
+.fade {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8) url('../img/826.gif') no-repeat 50% 50%;
+}
+
+.modal-container {
+  padding: 0;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  padding: 0;
+  margin: 0 auto;
+  overflow-y: scroll;
+  width: 100%;
+  max-width: 450px;
+  background-color: #fff;
+}
+
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+
+.visible {
+  display: flex;
+  visibility: visible;
+}
+
+.active {
+  display: flex;
+  visibility: visible;
+}
+
+
+.formChangeClient,
+.formNewClient {
+  position: relative;
+  padding: 5% 6% 0 6%;
+  height: auto;
+  margin-bottom: 0;
+}
+
+.changeTitle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 4.5%;
+}
+
+.span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #B0B0B0;
+  font-size: calc(var(--sizeindex) * .65);
+  padding: 0;
+}
+
+.inputText {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  color: var(--color-gray)
+}
+
+.inputChange {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.inputChange:not(:last-child) {
+  margin-bottom: 5.5%;
+}
+
+.buttonAddContacts {
+  position: relative;
+  width: 100%;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  padding: 3% 0;
+  border: none;
+  margin-bottom: 4%;
+}
+
+.buttonSaveClient {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  border: none;
+  padding: 3% 8%;
+  margin-bottom: 1%;
+}
+
+.close {
+  position: absolute;
+  top: 8%;
+  right: 2%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.buttonDelСlient {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: underline;
+  display: block;
+  border: none;
+  background-color: transparent;
+  margin-bottom: 6%;
+}
+
+.rel {
+  position: relative;
+}
+
+.modal-container {
+  padding: 0;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+}
+
+.modal-content {
+  padding: 0;
+  margin: 0 auto;
+  overflow-y: scroll;
+  width: 100%;
+  max-width: 450px;
+  background-color: #fff;
+}
+
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+
+.visible {
+  display: flex;
+  visibility: visible;
+}
+
+.active {
+  display: flex;
+  visibility: visible;
+}
+
+.formNewClient {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.formChangeClient {
+  position: relative;
+  padding: 5% 6% 0 6%;
+  height: auto;
+  margin-bottom: 6%;
+}
+
+.divShow {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding-bottom: 2%;
+}
+
+.showButton {
+  position: relative;
+  width: 100%;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 0;
+  padding: 0;
+  border: none;
+  background-color: var(--color-back);
+  margin-bottom: 3%;
+}
+
+.changeTitle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 4.5%;
+}
+
+.span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #B0B0B0;
+  font-size: calc(var(--sizeindex) * .65);
+  padding: 0;
+}
+
+.inputText {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  color: var(--color-gray)
+}
+
+.inputChange {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--color-gray);
+
+}
+
+.inputChange:not(:last-child) {
+  margin-bottom: 2.5%;
+}
+
+.buttonAddContactsWrapper {
+  z-index: 5000;
+  min-height: 5vh;
+  max-height: max-content;
+  background-color: var(--color-back);
+  padding: 3% 0;
+  width: 113.5%;
+  transform: translateX(-6%);
+}
+
+.buttonAddContacts {
+  position: relative;
+  width: 100%;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 0;
+  padding: 0;
+  border: none;
+  background-color: var(--color-back);
+  margin-bottom: 0;
+}
+
+
+.buttonSaveClient {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  border: none;
+  background-color: var(--color-viol);
+  padding: 3% 8%;
+  margin-bottom: 1%;
+  width: 37%;
+  transition: 0.4s  background-color ease-in-out, 0.4s color ease-in-out;
+}
+
+.close {
+  position: absolute;
+  top: 8%;
+  right: 2%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.divButtonsChangeClient {
+  padding: 2% 0;
+  background-color: var(--color-back);
+  margin-bottom: 4%;
+}
+
+.buttonDelСlient {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: underline;
+  display: block;
+  border: none;
+  background-color: transparent;
+  margin-bottom: 6%;
+  cursor: pointer;
+}
+
+.select {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding-bottom: 2%;
+}
+
+.select__elem {
+  width: 100%;
+
+}
+
+.choices {
+  width: 28%;
+  display: flex;
+  margin-bottom: 0;
+  border: 1px solid #C8C5D1;
+}
+
+.choices__inner {
+  z-index: 5000;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  background-color: #C8C5D1;
+}
+
+.choices__list--dropdown .choices__item--selectable,
+.choices__list[aria-expanded] .choices__item--selectable {
+  padding-right: 0px;
+}
+
+
+.choices__list {
+  background-color: #C8C5D1;
+}
+
+.inputSelect {
+  display: flex;
+  width: 52%;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  border: 1px solid #E7E5EB;
+}
+
+.inputSelect::placeholder {
+  color: var(--color-back);
+}
+
+
+.inputButtonClose {
+  display: flex;
+  border: 1px solid #C8C5D1;
+  background-color: #C8C5D1;
+  padding: 3% 0;
+}
+
+.scroll {
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
+.tableHead {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 0px;
+  color: var(--color-gray);
+}
+
+.error,
+.just-validate-error-label {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  color: #F06A4D;
+  text-align: center;
+  margin-bottom: 1%;
+}
+
+.buttonAddClient {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: -5vh;
+  padding: 1% 2%;
+  border: 1px solid var(--color-viol);
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.4s background-color ease-in-out, 0.4s color ease-in-out;
+}
+
+.buttonAddContactsWrapper {
+  z-index: 5000;
+  min-height: 3vh;
+  max-height: max-content;
+  background-color: var(--color-back);
+  padding: 3% 0;
+  width: 113.5%;
+  transform: translateX(-6%);
+  margin-bottom: 4%;
+}
+
+.buttonAddContacts {
+  position: relative;
+  width: 100%;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 0;
+  padding: 0;
+  border: none;
+  background-color: var(--color-back);
+  margin-bottom: 3%;
+  cursor: pointer;
+}
+
+.inputText {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  color: var(--color-gray)
+}
+
+.addPlaceholder {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.addPlaceholder:not(:last-child) {
+  margin-bottom: 5.5%;
+}
+
+.divDel {
+  padding: 4% 0% 0% 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.divDel .changeTitle {
+  text-align: center;
+  margin-bottom: 3%;
+}
+
+.divDel .buttonSaveClient {
+  text-align: center;
+  position: relative;
+  left: 0;
+  transform: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  border: none;
+  padding: 3.5% 8%;
+  margin-bottom: 1%;
+  width: auto;
+  cursor: pointer;
+}
+
+.divDel .buttonDelСlient {
+  text-align: center;
+  position: relative;
+  left: 0;
+  transform: none;
+  cursor: pointer;
+}
+
+.textDel {
+  width: 65%;
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  margin-bottom: 6%;
+}
+
+.buttonAddClient:focus-visible,
+.buttonSaveClient:focus-visible {
+  background-color: #B89EFF;
+  outline: none;
+  transition: 0.4s background-color ease-in-out, 0.4s outline ease-in-out;
+}
+
+.buttonAddClient:hover,
+.buttonSaveClient:hover {
+  background-color: #7B61FF;
+  color: var(--color-white);
+  transition: 0.4s background-color ease-in-out;
+}
+
+.buttonAddClient:active,
+.buttonSaveClient:active {
+  background-color: #C8C5D1;
+  outline: none;
+  transition: 0.4s background-color ease-in-out, 0.4s outline ease-in-out;
+}
+
+
+.tdActionsChange:hover,
+.tdActionsChange:active,
+.buttonAddClient:hover,
+.buttonAddContacts:hover {
+  transition: 0.4s color ease-in-out,  0.4s fill ease-in-out;
+  color: #9873FF;  
+  fill: #9873FF;
+  cursor: pointer;
+}
+
+.buttonAddContacts svg:hover {
+  cursor: pointer;
+  fill: #9873FF;
+}
+
+
+.tdActionsDelete:hover,
+.tdActionsDelete:active,
+.buttonAddClient:active {
+  color: #F06A4D;
+  transition: 0.4s color ease-in-out;
+  cursor: pointer;
+}
+
+.is-invalid,
+.inputError  {
+  border-bottom: 2px solid red !important;
+}
+
+.inputButtonClose:hover {
+  transition: .4s border ease-in-out;
+  border: 1px solid red;
+  cursor: pointer;
+}
+
+.inputButtonClose svg {
+  transition: .4s stroke ease-in-out;
+}
+
+.inputButtonClose svg:hover {
+  stroke: red;
+}
+
+@media (min-width: 4300px) {
+.header__search__field {
+  width: 30vw;
+  padding: 2% 2%;
+  font-size: calc(var(--sizeindex) * .7);
+  border: 1px solid var(--color-back);
+}
+}
+
+@media (min-width: 1921px) {
+  body {
+    min-width: 1921px;
+  }
+
+  .header__logo {
+    margin-right: 4%;
+    transform: scale(1.3);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .container {
+    margin: 38px auto;
+    max-width: 1800px;
+    background-color: var(--color-back);
+  }
+
+  .main-title {
+    margin-bottom: 1.7%;
+    font-size: calc(var(--sizeindex) * 1.15);
+  }
+
+  tbody {
+    background-color: var(--color-white);
+    font-size: calc((var(--sizeindex) * .7));
+
+  }
+
+  tr td {
+    height: 7.7vh;
+  }
+
+  .span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #B0B0B0;
+    padding-left: 4%;
+  }
+
+  thead {
+    height: 4vh;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  .butArrow {
+    border: none;
+    background-color: transparent;
+    vertical-align: middle;
+    transition: .4s cursor ease-in-out;
+    cursor: pointer;
+  }
+
+  .butArrow svg:hover {
+    cursor: pointer;
+  }
+
+  .id {
+    width: 5%;
+    vertical-align: middle;
+    padding: 0 1.5%;
+  }
+
+
+  .tdId {
+    text-align: center;
+  }
+
+  .tdFIO {
+    width: 28%;
+    vertical-align: middle;
+    padding: 0 2.2%;
+  }
+
+  .name {
+    padding: 0 2.2%;
+  }
+
+  .tdDateCreate {
+    width: 12.5%;
+    padding: 0;
+    vertical-align: middle;
+  }
+
+  .tdDateChange {
+    width: 12.5%;
+    padding: 0;
+    vertical-align: middle;
+  }
+
+  .tdContacts {
+    width: 11%;
+  }
+
+  .tdActions {
+    width: 15%;
+  }
+
+  .divActions {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .tdActionsChange {
+    width: 55%;
+  }
+
+  .tdActionsDelete {
+    width: 45%;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1499px) {
+  body {
+    min-width: 1200px;
+    max-width: 1499px;
+    background-color: var(--color-back);
+  }
+
+  .header {
+    margin-bottom: 0;
+  }
+
+  .header-wrapper {
+    padding: 1.5% 1.4%;
+    display: flex;
+  }
+
+  .header__logo {
+    margin-right: 4%;
+    transform: none;
+  }
+
+  .header__search__field {
+    width: 42.5vw;
+    padding: 2.5% 2%;
+    font-size: calc(var(--sizeindex) * .65);
+    border: 1px solid var(--color-back);
+}
+
+  .container {
+    margin: 38px auto;
+    max-width: 1186px;
+    background-color: var(--color-back);
+  }
+
+  .main-title {
+    margin-bottom: 2%;
+    font-size: calc(var(--sizeindex) * 1.15);;
+  }
+
+  tbody {
+    background-color: var(--color-white);
+    font-size: calc(var(--sizeindex) * .65);
+}
+
+tr td {
+  height: 7.7vh;
+}
+
+  .span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #B0B0B0;
+    font-size: calc(var(--sizeindex) * .65);
+    padding-left: 4%;
+  }
+
+  thead {
+    height: 3.5vh;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  .butArrow {
+    border: none;
+    background-color: transparent;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  .id {
+    width: 5%;
+    vertical-align: middle;
+    padding: 0 1.5%;
+  }
+
+
+  .tdId {
+    text-align: center;
+  }
+
+  .tdFIO {
+    width: 28%;
+    vertical-align: middle;
+    padding: 0 2.2%;
+  }
+
+  .name {
+    padding: 0 2.2%;
+  }
+
+  .tdDateCreate {
+    width: 12.5%;
+    padding: 0;
+    vertical-align: middle;
+  }
+
+  .tdDateChange {
+    width: 12.5%;
+    padding: 0;
+    vertical-align: middle;
+  }
+
+  .tdContacts {
+    width: 11%;
+  }
+
+  .contactList {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0 5px;
+  }
+
+  .tdActions {
+    width: 15%;
+  }
+
+  .divActions {
+    display: flex;
+    flex-direction: row;
+    align-items: center
+  }
+
+  .tdActionsChange {
+    width: 55%;
+  }
+
+  .tdActionsDelete {
+    width: 45%;
+  }
+
+  .modal-container {
+    padding: 0;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-content {
+    padding: 0;
+    margin: 0 auto;
+    overflow-y: scroll;
+    width: 100%;
+    max-width: 450px;
+    background-color: #fff;
+  }
+
+  .hidden {
+    visibility: hidden;
+    display: none;
+  }
+
+  .visible {
+    display: flex;
+    visibility: visible;
+  }
+
+  .active {
+    display: flex;
+    visibility: visible;
+  }
+
+  .formNewClient {
+    transform: translateY(-4%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 15% 6% 0 6%;
+  }
+
+  .addPlaceholder:not(:last-child) {
+    margin-bottom: 9%;
+  }
+
+
+  .formNewClient .changeTitle {
+    margin-bottom: 8.5%;
+  }
+
+  .formChangeClient {
+    position: relative;
+    padding: 5% 6% 0 6%;
+    height: auto;
+    margin-bottom: 6%;
+  }
+
+  .changeTitle {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 4.5%;
+  }
+
+  .span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #B0B0B0;
+    font-size: calc(var(--sizeindex) * .65);
+    padding: 0;
+  }
+
+  .inputText {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    color: var(--color-gray)
+  }
+
+  .inputChange {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--color-gray);
+
+  }
+
+  .inputChange:not(:last-child) {
+    margin-bottom: 5.5%;
+  }
+
+  .buttonAddContactsWrapper {
+    z-index: 5000;
+    min-height: 3vh;
+    max-height: max-content;
+    background-color: var(--color-back);
+    padding: 3% 0;
+    width: 113.5%;
+    transform: translateX(-6%);
+    margin-bottom: 4%;
+  }
+
+  .buttonAddContacts {
+    position: relative;
+    width: 100%;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 0;
+    padding: 0;
+    border: none;
+    background-color: var(--color-back);
+    margin-bottom: 0;
+  }
+
+
+  .buttonSaveClient {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 37%;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    border: none;
+    padding: 3.5% 8%;
+    margin-bottom: 1%;
+    cursor: pointer;
+  }
+
+  .close {
+    position: absolute;
+    top: 8%;
+    right: 2%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .divButtonsChangeClient {
+    padding: 2% 0;
+    background-color: var(--color-back);
+    margin-bottom: 4%;
+  }
+
+  .buttonDelСlient {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-decoration: underline;
+    display: block;
+    border: none;
+    background-color: transparent;
+    margin-bottom: 6%;
+  }
+
+  .select {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+    padding-bottom: 2%;
+  }
+
+  .select__elem {
+    width: 100%;
+
+  }
+
+  .choices__inner {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    background-color: #C8C5D1;
+  }
+
+  .choices__list--dropdown .choices__item--selectable,
+  .choices__list[aria-expanded] .choices__item--selectable {
+    padding-right: 0px;
+  }
+
+  .choices__list {
+    background-color: #C8C5D1;
+  }
+
+  .inputSelect {
+    display: flex;
+    width: 52%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    border: 1px solid #E7E5EB;
+  }
+
+  .inputSelect::placeholder {
+    color: var(--color-back);
+  }
+
+
+  .inputButtonClose {
+    display: flex;
+    border: 1px solid #C8C5D1;
+    background-color: #C8C5D1;
+    padding: 3% 0;
+  }
+
+  .scroll {
+    height: 500px;
+    overflow-y: scroll;
+  }
+
+  .divDel.changeTitle {
+    text-align: center;
+    margin-bottom: 2%;
+  }
+
+  .buttonAddClient {
+    bottom: -5vh;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  body {
+    min-width: 1024px;
+    max-width: 1199px;
+    background-color: var(--color-back);
+  }
+
+  .header-wrapper {
+    padding: 1.8% 2%;
+  }
+
+  .header__logo {
+    margin-right: 5.5%;
+    transform: none;
+  }
+
+  .header__search__field {
+    width: 56.5vw;
+    padding: 2.6% 2%;
+    font-size: calc(var(--sizeindex) * .85);
+    border: 1px solid var(--color-back);
+}
+
+  table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .container {
+    margin: 38px auto;
+    max-width: 1800px;
+    background-color: var(--color-back);
+    padding: 0 2%;
+  }
+
+  .main-title {
+    margin-bottom: 1.2%;
+    font-size: calc(var(--sizeindex) * 1.5);
+    font-weight: 700;
+}
+
+  tbody {
+    background-color: var(--color-white);
+    font-size: calc(var(--sizeindex) * .65);
+
+  }
+
+  .tableText {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  tr td {
+    height: 9.5vh;
+  }
+
+  .span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #B0B0B0;
+    padding-left: 2%;
+  }
+
+  thead {
+    height: 7vh;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .butArrow {
+    border: none;
+    background-color: transparent;
+    /* vertical-align: middle; */
+    cursor: pointer;
+  }
+
+  .id {
+    width: 4.5%;
+    /* vertical-align: bottom; */
+    padding: 0 2%;
+  }
+
+
+  .tdId {
+    text-align: center;
+  }
+
+  .tdFIO {
+    width: 13.5%;
+    /* vertical-align: bottom; */
+    padding: 0 2%;
+  }
+
+  .name {
+    padding: 0 1.2%;
+    white-space: normal;
+  }
+
+  .tdDateCreate {
+    width: 9%;
+    padding: 0% 5% 0 0;
+    line-height: 16px;
+  }
+
+  .tdDateChange {
+    width: 9%;
+    padding: 0% 5% 0 0;
+    line-height: 16px;
+  }
+
+  .tdContacts {
+    width: 9%;
+    line-height: 16px;
+  }
+
+  .tdActions {
+    width: 12%;
+    line-height: 16px;
+  }
+
+  .divActions {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .tdActionsChange {
+    width: 55%;
+  }
+
+  .tdActionsDelete {
+    width: 45%;
+  }
+
+  .buttonAddClient {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: -6.5vh;
+    padding: 1% 2.2%;
+    border: 1px solid var(--color-viol);
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.4s background-color ease-in-out;
+}
+
+  .modal-content {
+    transform: translateY(9%);
+    padding: 0;
+    margin: 0 auto;
+    overflow-y: scroll;
+    width: 100%;
+    max-width: 450px;
+    background-color: #fff;
+  }
+
+  .formNewClient {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .buttonAddContactsWrapper {
+    z-index: 5000;
+    min-height: 3vh;
+    max-height: max-content;
+    background-color: var(--color-back);
+    padding: 3% 0;
+    width: 113.5%;
+    transform: translateX(-6%);
+    margin-bottom: 8%;
+  }
+
+  .addPlaceholder:not(:last-child) {
+    margin-bottom: 9.5%;
+  }
+
+  .buttonSaveClient {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    border: none;
+    padding: 3% 8%;
+    margin-bottom: 1%;
+    width: 37%;
+    cursor: pointer;
+  }
+
+  .changeTitle {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 7.5%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    min-width: 768px;
+    max-width: 1023px;
+    background-color: var(--color-back);
+  }
+
+  .header-wrapper {
+    padding: 2.5% 2.5%;
+  }
+
+  .header__logo {
+    margin-right: 7.5%;
+    transform: none;
+  }
+
+  .header__search__field {
+    width: 75.5vw;
+    padding: 2.3% 2%;
+    font-size: var(--sizeindex);
+    border: 1px solid var(--color-back);
+  }
+
+  .container {
+    padding: 0 2.5%;
+    margin: 42px auto;
+  }
+
+  .main-title {
+    margin-bottom: 0;
+    font-size: calc(var(--sizeindex) * 1.8);
+  }
+
+  .tableHead {
+    height: 8.5vh;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .id {
+    width: 7%;
+    padding: 0 2.5% 1% 2.5%;
+    vertical-align: bottom;
+  }
+
+  .tdFIO {
+    width: 26%;
+    padding: 0 2.2% 1% 2.2%;
+    vertical-align: bottom;
+  }
+
+  .tdDateCreate {
+    width: 11%;
+    padding: 0;
+  }
+
+  .tdDateChange {
+    width: 11%;
+    padding: 0;
+  }
+
+  .tdContacts {
+    width: 15%;
+    padding: 0 0 1% 0;
+    vertical-align: bottom;
+  }
+
+  .tdActions {
+    width: 12%;
+    padding: 0 0 1% 0;
+    vertical-align: bottom;
+  }
+
+  .tableText {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .divActions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .tdActionsChange {
+    width: 100%;
+  }
+
+  .tdActionsDelete {
+    width: 100%;
+  }
+
+
+  .tdId {
+    text-align: right;
+    vertical-align: middle;
+  }
+
+  tr td {
+    height: 9.5vh;
+  }
+
+  .contactList {
+    gap: 0px 8px;
+}
+
+  .buttonAddClient {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: -6.5vh;
+    padding: 1.4% 3%;
+    border: 1px solid var(--color-viol);
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.4s background-color ease-in-out;
+  }
+
+  .modal-content {
+    transform: translateY(9%);
+    padding: 0;
+    margin: 0 auto;
+    overflow-y: scroll;
+    width: 100%;
+    max-width: 450px;
+    background-color: #fff;
+  }
+
+
+  .buttonAddContactsWrapper {
+    z-index: 5000;
+    min-height: 3vh;
+    max-height: max-content;
+    background-color: var(--color-back);
+    padding: 3% 0;
+    width: 113.5%;
+    transform: translateX(-6%);
+    margin-bottom: 8%;
+  }
+
+  .addPlaceholder:not(:last-child) {
+    margin-bottom: 9.5%;
+  }
+
+  .buttonSaveClient {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    border: none;
+    padding: 3% 8%;
+    margin-bottom: 1%;
+    width: 37%;
+    cursor: pointer;
+  }
+
+  .changeTitle {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 7.5%;
+  }
+
+  .scroll {
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+
+  .error,
+  .just-validate-error-label {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 0;
+    color: #F06A4D;
+    text-align: center;
+    margin-bottom: 4%;
+  }
+
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+  body {
+    min-width: 577px;
+    max-width: 767px;
+    background-color: var(--color-back);
+  }
+
+  .header__logo {
+    margin-right: 7%;
+    transform: none;
+  }
+
+  .header__search__field {
+    width: 76.5vw;
+    padding: 4% 2%;
+    font-size: (var(--sizeindex));
+    border: 1px solid var(--color-back);
+  }
+
+  .container {
+    padding: 0 2.5%;
+    margin: 42px auto;
+  }
+
+  .main-title {
+    margin-bottom: 2%;
+    font-size: calc(var(--sizeindex) * 1.8);
+  }
+
+
+  .tableHead {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .id {
+    width: 7%;
+    vertical-align: bottom;
+    padding: 0 2.5%;
+  }
+
+  .tdFIO {
+    width: 26%;
+    vertical-align: bottom;
+    padding: 0 2.2%;
+  }
+
+  .tdDateCreate {
+    width: 11%;
+    padding: 0;
+    vertical-align: middle;
+  }
+
+  .tdDateChange {
+    width: 11%;
+    padding: 0;
+    vertical-align: middle;
+  }
+
+  .tdContacts {
+    width: 15%;
+    vertical-align: bottom;
+  }
+
+  .tdActions {
+    width: 12%;
+    vertical-align: bottom;
+  }
+
+  .tableText {
+    font-weight: 400;
+    font-size: var(--sizeindex);
+    line-height: 19px;
+  }
+
+  .span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .divActions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .tdActionsChange {
+    width: 100%;
+  }
+
+  .tdActionsDelete {
+    width: 100%;
+  }
+
+
+  .tdId {
+    text-align: right;
+  }
+
+  tr td {
+    height: 10vh;
+  }
+
+  .buttonAddClient {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: -5vh;
+    padding: 1.4% 3%;
+    border: 1px solid var(--color-viol);
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.4s background-color ease-in-out;
+  }
+
+  .buttonAddContactsWrapper {
+    z-index: 5000;
+    min-height: 3vh;
+    max-height: max-content;
+    background-color: var(--color-back);
+    padding: 3% 0;
+    width: 113.5%;
+    transform: translateX(-6%);
+    margin-bottom: 8%;
+  }
+
+  .addPlaceholder:not(:last-child) {
+    margin-bottom: 9.5%;
+  }
+
+  .buttonSaveClient {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    border: none;
+    padding: 3% 8%;
+    margin-bottom: 1%;
+    width: 37%;
+    cursor: pointer;
+  }
+
+  .changeTitle {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 7.5%;
+  }
+
+  .scroll {
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+
+  .error,
+  .just-validate-error-label {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 0;
+    color: #F06A4D;
+    text-align: center;
+    margin-bottom: 4%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 576px) {
+  body {
+    min-width: 320px;
+    max-width: 576px;
+    background-color: var(--color-back)
+  }
+
+  #app {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .tdId {
+    padding: 0 20px;
+  }
+
+  .name {
+    padding: 0 15px;
+    white-space: normal
+  }
+
+  .header-wrapper {
+    padding: 2% 1.4%;
+    display: flex;
+  }
+
+  .header__search {
+    display: none;
+  }
+
+  .header-wrapper {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header__logo {
+    margin-right: 0;
+    max-width: 8vw;
+    transform: none;
+  }
+
+  .container {
+    padding: 0 3.5%;
+    margin: 30px auto;
+    position: relative;
+  }
+
+  .main-title {
+    margin-bottom: 5%;
+    font-size: calc(var(--sizeindex) * 2);
+  }
+
+  table {
+    width: 738px;
+    table-layout: fixed;
+  }
+
+  .tableHead {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  thead {
+    height: 4.5vh;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  .id {
+    width: 6%;
+    vertical-align: middle;
+    padding: 0 2.5%;
+  }
+
+  .tdFIO {
+    width: 21%;
+    vertical-align: middle;
+    padding: 0 2.2%;
+  }
+
+  .tdDateCreate {
+    width: 10%;
+    padding: 0;
+    vertical-align: middle;
+    white-space: normal
+  }
+
+
+  .tdDateChange {
+    width: 10%;
+    padding: 0;
+    vertical-align: middle;
+    white-space: normal
+  }
+
+  .DateChange span {
+    display: block;
+  }
+
+  .DateCreate span {
+    display: block;
+  }
+
+  .tdContacts {
+    width: 12%;
+    vertical-align: middle;
+  }
+
+  .tdActions {
+    width: 9.5%;
+    vertical-align: middle;
+  }
+
+  .tableText {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .divActions {
+    display: flex;
+    width: 10%;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .tdActionsChange {
+    width: 100%;
+  }
+
+  .tdActionsDelete {
+    width: 100%;
+  }
+
+  tr td {
+    height: 9.5vh;
+
+  }
+
+  .buttonAddClient {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 6.5vh;
+    padding: 4% 9%;
+    border: 1px solid var(--color-viol);
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.4s background-color ease-in-out;
+    font-size: calc(var(--sizeindex) * 1.55);
+  }
+
+  .modal-content {
+    transform: translateY(9%);
+    padding: 0;
+    margin: 0 auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 94%;
+    max-width: 450px;
+    background-color: #fff;
+  }
+
+  .formChangeClient {
+    position: relative;
+    padding: 7% 6% 0 5%;
+    height: auto;
+    margin-bottom: 0%;
+  }
+
+  .changeTitle {
+    display: inline-block;
+    margin-bottom: 7%;
+  }
+
+  .span {
+    display: inline-block;
+    width: 24%;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 19px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .close {
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .inputChange:not(:last-child) {
+    margin-bottom: 8.5%;
+  }
+
+  .buttonSaveClient {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    border: none;
+    padding: 4% 11%;
+    margin-bottom: 1%;
+    cursor: pointer;
+  }
+
+  .buttonAddContacts {
+    position: relative;
+    width: 100%;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    padding: 3% 0;
+    border: none;
+    margin-bottom: 0%;
+  }
+
+  .choices {
+    width: 36%;
+    display: flex;
+    margin-bottom: 0;
+    border: 1px solid #C8C5D1;
+  }
+
+  .buttonAddContactsWrapper {
+    z-index: 5000;
+    min-height: 3vh;
+    max-height: max-content;
+    background-color: var(--color-back);
+    padding: 3% 0;
+    width: 113.5%;
+    transform: translateX(-6%);
+    margin-bottom: 8%;
+  }
+
+  .addPlaceholder:not(:last-child) {
+    margin-bottom: 9.5%;
+  }
+
+  /* .buttonSaveClient {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    border: none;
+    padding: 3% 8%;
+    margin-bottom: 1%;
+    width: 37%;
+    cursor: pointer;
+  } */
+
+  .buttonSaveClient {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    border: none;
+    padding: 5% 8%;
+    margin-bottom: 1%;
+    width: 55%;
+  }
+
+  .scroll {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .error,
+  .just-validate-error-label {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 0;
+    color: #F06A4D;
+    text-align: center;
+    margin-bottom: 4%;
+  }
+
+  .divDel .buttonSaveClient {
+    text-align: center;
+    position: relative;
+    left: 0;
+    transform: none;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    border: none;
+    padding: 5% 11%;
+    margin-bottom: 1%;
+    width: auto;
+    cursor: pointer;
+}
+
+.divDel {
+  padding: 8% 0% 0% 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+}
+
