@@ -88,11 +88,12 @@
     //создать заголовок таблицы
     let tableClients = document.createElement('table');
     let thead = document.createElement('thead');
-    thead.classList.add('tableHead');
+    thead.classList.add('table__head');
     let tbody = document.createElement('tbody');
     let trHed = document.createElement('tr');
     let thID = document.createElement('th');
     thID.innerHTML = 'ID';
+    thID.classList.add('table__th');
     thID.classList.add('id');
     thID.classList.add('over');
     let buttonFilId = document.createElement('a');
@@ -110,6 +111,7 @@
     `;
     let tdFIO = document.createElement('th');
     tdFIO.innerHTML = 'Фамилия, имя и отчество';
+    tdFIO.classList.add('table__th');
     tdFIO.classList.add('tdFIO');
     let buttonFilName = document.createElement('a');
     buttonFilName.classList.add('butArrow');
@@ -118,6 +120,7 @@
   </svg>`;
     let tdDateCreate = document.createElement('th');
     tdDateCreate.innerHTML = 'Дата и время создания';
+    tdDateCreate.classList.add('table__th');
     tdDateCreate.classList.add('tdDateCreate');
     let buttonFilDateCreate = document.createElement('a');
     buttonFilDateCreate.classList.add('butArrow');
@@ -127,6 +130,7 @@
     `;
     let tdDateChange = document.createElement('th');
     tdDateChange.innerHTML = 'Последние изменения';
+    tdDateChange.classList.add('table__th');
     tdDateChange.classList.add('tdDateChange');
     let buttonFilDateChange = document.createElement('a');
     buttonFilDateChange.classList.add('butArrow');
@@ -136,11 +140,14 @@
     `;
     let tdContacts = document.createElement('th');
     tdContacts.innerHTML = 'Контакты';
+    tdContacts.classList.add('table__th');
     tdContacts.classList.add('tdContacts');
     let tdActions = document.createElement('th');
     tdActions.innerHTML = 'Действия';
+    tdActions.classList.add('table__th');
     tdActions.classList.add('tdActions');
     let buttonAddClient = document.createElement('button');
+    buttonAddClient.classList.add('main__button');
     buttonAddClient.classList.add('buttonAddClient');
     buttonAddClient.innerHTML = `<svg width="23" height="16" viewbox="0 0 23 16">
     <use xlink:href="img/sprite.svg#addClients"></use>
@@ -149,6 +156,7 @@
 
     app.appendChild(tableClients);
     tableClients.appendChild(thead);
+    tableClients.classList.add('table');
     thead.appendChild(trHed);
     trHed.appendChild(thID);
     thID.appendChild(buttonFilId);
@@ -175,29 +183,35 @@
             for (let elem of array) {
                 let tr = document.createElement('tr');
                 let tdId = document.createElement('td');
+                tdId.classList.add('table__td')
                 tdId.classList.add('tdId')
                 let tdName = document.createElement('td');
+                tdName.classList.add('table__td');
                 tdName.classList.add('tableText');
                 let tdDateCreate = document.createElement('td');
+                tdDateCreate.classList.add('table__td');
                 tdDateCreate.classList.add('tableText');
                 tdDateCreate.classList.add('DateCreate');
                 let tdDateChange = document.createElement('td');
+                tdDateChange.classList.add('table__td');
                 tdDateChange.classList.add('tableText');
                 tdDateChange.classList.add('DateChange');
                 let tdContacts = document.createElement('td');
+                tdContacts.classList.add('table__td')
                 let tdActionsChange = document.createElement('div');
                 let divActions = document.createElement('td');
                 tdActionsChange.classList.add('tableText');
                 let tdActionsDelete = document.createElement('div');
                 tdActionsDelete.classList.add('tableText');
                 tdId.innerHTML = elem.id.slice(0, 6);
-                tdId.classList.add('tableHead');
+                tdId.classList.add('table__head');
                 tdName.innerHTML = elem.surname + ' ' + elem.name + ' ' + elem.lastName;
                 tdName.classList.add('name');
                 tdDateCreate.innerHTML = dateNormalize(elem.createdAt) + ' ' + `<span class='span'>${timeNormalize(convertTZ(elem.createdAt))}</span>`;
                 tdDateChange.innerHTML = dateNormalize(elem.updatedAt) + ' ' + `<span class='span'>${timeNormalize(convertTZ(elem.updatedAt))}</span>`;
 
                 let contactList = document.createElement('ul');
+                contactList.classList.add('table__contactlist');
                 contactList.classList.add('contactList');
 
                 for (let contact of elem.contacts) {
@@ -239,20 +253,25 @@
                     document.querySelector('.modal-container').classList.remove('hidden');
                     document.querySelector('.modal-container').classList.add('active');
                     let divDel = document.createElement('div');
+                    divDel.classList.add('modal-content-wrapper');
                     divDel.classList.add('divDel');
                     divDel.style.position = 'relative';
                     let h2 = document.createElement('h2');
+                    h2.classList.add('modal-content__title');
                     h2.classList.add('changeTitle');
                     h2.style.textAlign = 'center';
                     h2.innerHTML = 'Удалить клиента';
                     let p = document.createElement('p');
+                    p.classList.add('modal-content__text');
                     p.classList.add('textDel');
                     p.style.marginBottom = '4%';
                     p.innerHTML = 'Вы действительно хотите удалить данного клиента?';
                     let buttonDel = document.createElement('button');
+                    buttonDel.classList.add('modal-content__button');
                     buttonDel.classList.add('buttonSaveClient');
                     buttonDel.innerHTML = 'Удалить';
                     let buttonCancel = document.createElement('button');
+                    buttonCancel.classList.add('modal-content__button');
                     buttonCancel.classList.add('buttonDelСlient');
                     buttonCancel.innerHTML = 'Отмена';
 
@@ -283,9 +302,11 @@
                     document.querySelector('.modal-container').classList.remove('hidden');
                     document.querySelector('.modal-container').classList.add('active');
                     let formChangeClient = document.createElement('form');
+                    formChangeClient.classList.add('modal-content__form');
                     formChangeClient.classList.add('formChangeClient');
 
                     let h2 = document.createElement('h2');
+                    h2.classList.add('modal-content__title');
                     h2.classList.add('changeTitle');
                     let span = document.createElement('span');
                     span.classList.add('span');
@@ -294,7 +315,9 @@
                     let inputName = document.createElement('input');
 
                     let pInputName = document.createElement('p');
+                    pInputName.classList.add('modal-content__text');
                     pInputName.classList.add('inputText');
+                    inputName.classList.add('modal-content__input');
                     inputName.classList.add('inputChange');
                     inputName.placeholder = 'Имя*';
                     inputName.classList.add('addPlaceholder');
@@ -308,6 +331,7 @@
                     pInputName.innerHTML = 'Имя*';
                     inputName.value = elem.name;
                     let inputSurname = document.createElement('input');
+                    inputSurname.classList.add('modal-content__input');
                     inputSurname.classList.add('addPlaceholder');
                     inputSurname.classList.add('inputSurname');
                     inputSurname.type = 'text';
@@ -318,7 +342,9 @@
                     })
 
                     let pInputSurn = document.createElement('p');
+                    pInputSurn.classList.add('modal-content__text');
                     pInputSurn.classList.add('inputText');
+                    inputSurname.classList.add('modal-content__input');
                     inputSurname.classList.add('inputChange');
                     inputSurname.classList.add('inputSurnameChange');
                     inputSurname.type = 'text';
@@ -327,12 +353,15 @@
                     contactsAll.push(elem.contacts);
                     let inputLastname = document.createElement('input');
                     let pInputLast = document.createElement('p');
+                    pInputLast.classList.add('modal-content__text');
                     pInputLast.classList.add('inputText');
+                    inputLastname.classList.add('modal-content__input');
                     inputLastname.classList.add('inputChange');
                     pInputLast.innerHTML = 'Отчество';
                     inputLastname.value = elem.lastName;
                     let buttonShowContacts = document.createElement('button');
                     buttonShowContacts.innerHTML = 'Показать контакты';
+                    buttonShowContacts.classList.add('modal-content__button');
                     buttonShowContacts.classList.add('showButton');
 
                     //развернуть контакты
@@ -342,6 +371,7 @@
                             show = true;
                             for (let contact of elem.contacts) {
                                 let div = document.createElement('div');
+                                div.classList.add('modal-content__contacts');
                                 div.classList.add('divShow');
                                 let select = document.createElement('select');
                                 let input = document.createElement('input');
@@ -352,6 +382,7 @@
                                 input.addEventListener('input', function () {
                                     contact.value = input.value;
                                 })
+                                input.classList.add('modal-content__select');
                                 input.classList.add('inputSelect');
                                 select.appendChild(option);
                                 div.appendChild(select);
@@ -367,6 +398,7 @@
                                 inputButtonClose.innerHTML = `<svg width="16" height="16" viewbox="0 0 16 16">
                                     <use xlink:href="img/sprite.svg#inputButtonClose"></use>
                                   </svg>`;
+                                  inputButtonClose.classList.add('modal-content__button');
                                 inputButtonClose.classList.add('inputButtonClose');
                                 div.append(inputButtonClose);
                                 inputButtonClose.addEventListener('click', function (e) {
@@ -379,17 +411,21 @@
                     });
 
                     let buttonAddContactsWrapper = document.createElement('div');
+                    buttonAddContactsWrapper.classList.add('modal-content__buttons-wrapper');
                     buttonAddContactsWrapper.classList.add('buttonAddContactsWrapper');
                     let buttonAddContacts = document.createElement('button');
                     buttonAddContacts.classList.add('buttonAddContacts');
+                    buttonAddContacts.classList.add('modal-content__button');
                     buttonAddContacts.innerHTML = `<svg width="16" height="16" viewbox="0 0 16 16">
         <use xlink:href="img/sprite.svg#plus"></use>
       </svg>
         ` + 'Добавить контакт';
                     let buttonSaveClient = document.createElement('button');
+                    buttonSaveClient.classList.add('modal-content__button');
                     buttonSaveClient.classList.add('buttonSaveClient');
                     buttonSaveClient.innerHTML = 'Сохранить';
                     let buttonDelСlient = document.createElement('button');
+                    buttonDelСlient.classList.add('modal-content__button');
                     buttonDelСlient.classList.add('buttonDelСlient');
                     buttonDelСlient.innerHTML = 'Удалить клиента';
 
@@ -666,9 +702,11 @@
 
         //форма для добавления клиента
         let formNewClient = document.createElement('form');
+        formNewClient.classList.add('modal-content__form');
         formNewClient.classList.add('formNewClient');
         formNewClient.style.position = 'relative';
         let h2 = document.createElement('h2');
+        h2.classList.add('modal-content__title');
         h2.classList.add('changeTitle');
         h2.innerHTML = 'Новый клиент';
 
@@ -700,6 +738,7 @@
         inputLastname.classList.add('inputLastname');
 
         let buttonAddContacts = document.createElement('button');
+        buttonAddContacts.classList.add('modal-content__button');
         buttonAddContacts.classList.add('buttonAddContacts');
         buttonAddContacts.innerHTML = `<svg width="16" height="16" viewbox="0 0 16 16">
         <use xlink:href="img/sprite.svg#plus"></use>
@@ -707,10 +746,12 @@
         ` + 'Добавить контакт';
 
         let buttonAddContactsWrapper = document.createElement('div');
+        buttonAddContactsWrapper.classList.add('modal-content__buttons-wrapper');
         buttonAddContactsWrapper.classList.add('buttonAddContactsWrapper');
         add.appendChild(formNewClient);
 
         let buttonSaveClient = document.createElement('button');
+        buttonSaveClient.classList.add('modal-content__button');
         buttonSaveClient.classList.add('buttonSaveClient');
         buttonSaveClient.innerHTML = 'Сохранить';
         buttonSaveClient.type = 'submit';

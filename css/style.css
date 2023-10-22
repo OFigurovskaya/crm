@@ -113,7 +113,7 @@ table {
   background-color: var(--color-back);
 }
 
-.main-title {
+.main__title {
   margin-bottom: 1.7%;
   font-size: calc(var(--sizeindex) * 1.15);
 }
@@ -600,7 +600,7 @@ thead {
   overflow-y: scroll;
 }
 
-.tableHead {
+.table__head {
   font-weight: 400;
   font-size: 12px;
   line-height: 0px;
@@ -813,7 +813,7 @@ thead {
     background-color: var(--color-back);
   }
 
-  .main-title {
+  .main__title {
     margin-bottom: 1.7%;
     font-size: calc(var(--sizeindex) * 1.15);
   }
@@ -943,7 +943,7 @@ thead {
     background-color: var(--color-back);
   }
 
-  .main-title {
+  .main__title {
     margin-bottom: 2%;
     font-size: calc(var(--sizeindex) * 1.15);;
   }
@@ -1306,7 +1306,7 @@ tr td {
     padding: 0 2%;
   }
 
-  .main-title {
+  .main__title {
     margin-bottom: 1.2%;
     font-size: calc(var(--sizeindex) * 1.5);
     font-weight: 700;
@@ -1503,12 +1503,12 @@ tr td {
     margin: 42px auto;
   }
 
-  .main-title {
+  .main__title {
     margin-bottom: 0;
     font-size: calc(var(--sizeindex) * 1.8);
   }
 
-  .tableHead {
+  .table__head  {
     height: 8.5vh;
     font-weight: 400;
     font-size: 12px;
@@ -1689,13 +1689,13 @@ tr td {
     margin: 42px auto;
   }
 
-  .main-title {
+  .main__title {
     margin-bottom: 2%;
     font-size: calc(var(--sizeindex) * 1.8);
   }
 
 
-  .tableHead {
+  .table__head  {
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
@@ -1883,7 +1883,7 @@ tr td {
     position: relative;
   }
 
-  .main-title {
+  .main__title {
     margin-bottom: 5%;
     font-size: calc(var(--sizeindex) * 2);
   }
@@ -1893,7 +1893,7 @@ tr td {
     table-layout: fixed;
   }
 
-  .tableHead {
+  .table__head  {
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
